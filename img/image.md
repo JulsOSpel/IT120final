@@ -1,1 +1,1 @@
-Add image files here to add to READ.md
+Add image files here to add to README.md
