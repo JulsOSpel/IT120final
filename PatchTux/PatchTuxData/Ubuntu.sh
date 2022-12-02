@@ -546,3 +546,44 @@ then
 else
     echo -e "$aro2${nor} Skipping CIS 3.5"
 fi
+# +=== Full auto patch of CIS 6.1 ===+
+echo -e "$aro${nor} Hey $user, Want to secure the system with CIS step 6.1? y/n"
+if [[ $int =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+    echo -e "$aro2${nor} 6.1.1 Ensure permissions on /etc/passwd are configured"
+    chown root:root /etc/passwd
+    chmod u-x,go-wx /etc/passwd
+    echo -e "$aro2${nor} 6.1.2 Ensure permissions on /etc/passwd- are configured"
+    chown root:root /etc/passwd-
+    chmod u-x,go-wx /etc/passwd-
+    echo -e "$aro2${nor} 6.1.3 Ensure permissions on /etc/group are configured"
+    chown root:root /etc/group
+    chmod u-x,go-wx /etc/group
+    echo -e "$aro2${nor} 6.1.4 Ensure permissions on /etc/group- are configured"
+    chown root:root /etc/group-
+    chmod u-x,go-wx /etc/group-
+    echo -e "$aro2${nor} 6.1.5 Ensure permissions on /etc/shadow are configured"
+    chown root:root /etc/shadow
+    chown root:shadow /etc/shadow
+    chmod u-x,g-wx,o-rwx /etc/shadow
+    stat /etc/shadow
+    ehco -e "$aro${nor} Output should look like this:"
+    ehco -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 0/ root)"
+    echo -e "$aro2${nor} 6.1.6 Ensure permissions on /etc/shadow- are configured"
+    chown root:root /etc/shadow-
+    chown root:shadow /etc/shadow-
+    chmod u-x,g-wx,o-rwx /etc/shadow-
+    stat /etc/shadow-
+    ehco -e "$aro${nor} Output should look like this:"
+    ehco -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 42/ shadow)"
+    echo -e "$aro2${nor} 6.1.7 Ensure permissions on /etc/gshadow are configured"
+    chown root:root /etc/gshadow
+    chown root:shadow /etc/gshadow
+    chmod u-x,g-wx,o-rwx /etc/gshadow
+    echo -e "$aro2${nor} 6.1.8 Ensure permissions on /etc/gshadow- are configured"
+    chown root:root /etc/gshadow-
+    chown root:shadow /etc/gshadow-
+    chmod u-x,g-wx,o-rwx /etc/gshadow-
+else
+    echo -e "$aro2${nor} Skipping CIS 6.1"
+fi
