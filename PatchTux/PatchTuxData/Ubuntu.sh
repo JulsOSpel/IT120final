@@ -209,7 +209,7 @@ then
     then
         echo -e "$aro2${nor} 1.6.1.1 Ensure AppArmor is installed"
         apt -y install apparmor
-        apt -y install apparmor-profiles
+        apt -y install apparmor-profiles apparmor-utils
         echo -e "$aro2${nor} 1.6.1.2 Ensure AppArmor is enabled in the bootloader configuration"
         sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="apparmor=1 security=apparmor"/g' /etc/default/grub
         update-grub
