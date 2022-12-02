@@ -568,15 +568,15 @@ then
     chown root:shadow /etc/shadow
     chmod u-x,g-wx,o-rwx /etc/shadow
     stat /etc/shadow
-    ehco -e "$aro${nor} Output should look like this:"
-    ehco -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 0/ root)"
+    echo -e "$aro${nor} Output should look like this:"
+    echo -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 0/ root)"
     echo -e "$aro2${nor} 6.1.6 Ensure permissions on /etc/shadow- are configured"
     chown root:root /etc/shadow-
     chown root:shadow /etc/shadow-
     chmod u-x,g-wx,o-rwx /etc/shadow-
     stat /etc/shadow-
-    ehco -e "$aro${nor} Output should look like this:"
-    ehco -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 42/ shadow)"
+    echo -e "$aro${nor} Output should look like this:"
+    echo -e "$aro${nor} Access: (0640/-rw-r-----) Uid: ( 0/ root) Gid: ( 42/ shadow)"
     echo -e "$aro2${nor} 6.1.7 Ensure permissions on /etc/gshadow are configured"
     chown root:root /etc/gshadow
     chown root:shadow /etc/gshadow
