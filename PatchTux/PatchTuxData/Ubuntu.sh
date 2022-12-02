@@ -548,6 +548,7 @@ else
 fi
 # +=== Full auto patch of CIS 6.1 ===+
 echo -e "$aro${nor} Hey $user, Want to secure the system with CIS step 6.1? y/n"
+read int
 if [[ $int =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     echo -e "$aro2${nor} 6.1.1 Ensure permissions on /etc/passwd are configured"
